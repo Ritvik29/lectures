@@ -37,7 +37,6 @@ Nov. 18 |
 Nov. 20 |
 Nov. 25 |
 Nov. 27 | Thanksgiving, no class
-Dec. 02 | 
 Dec. 04 | 
 Dec. 09 | Final, 3:30 to 5:30 pm
 

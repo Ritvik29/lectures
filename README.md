@@ -11,7 +11,7 @@ Date    | Slides
 --------|--------
 Aug. 26 | 
 Aug. 28 |
-Sep. 02 | Labor day, no class
+Sep. 02 | 
 Sep. 04 |  
 Sep. 09 |
 Sep. 11 |
@@ -24,7 +24,7 @@ Oct. 02 |
 Oct. 07 |
 Oct. 09 |
 Oct. 14 |
-Oct. 16 | Midterm from 6:00 pm to 8:00 pm in ????
+Oct. 16 | Midterm from 6:00 pm to 8:00 pm in BLOC 149
 Oct. 21 |
 Oct. 23 |
 Oct. 28 |

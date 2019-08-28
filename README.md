@@ -9,8 +9,7 @@ for each day:
 
 Date    | Slides
 --------|--------
-Aug. 26 | We went over the syllabus and	gave a high level overview of what the
-course will entail.  Additionally, we defined some common terms/concepts that will be used throughout the course.
+Aug. 26 | We went over the syllabus and	gave a high level overview of what the course will entail.  Additionally, we defined some common terms/concepts that will be used throughout the course.
 Aug. 28 | We discussed missing data and imputation. We talked about some unsupervised imputation schemes and start to explore R Markdown via a simulation involving missing data and imputation
 Sep. 02 | 
 Sep. 04 |  

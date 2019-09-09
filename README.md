@@ -12,9 +12,9 @@ Date    | Slides
 Aug. 26 | We went over the syllabus and	gave a high level overview of what the course will entail.  Additionally, we defined some common terms/concepts that will be used throughout the course.
 Aug. 28 | We discussed missing data and imputation. We talked about some unsupervised imputation schemes and start to explore R Markdown via a simulation involving missing data and imputation
 Sep. 02 | We covered aspects of the multivariate normal distribution.
-Sep. 04 |  
-Sep. 09 |
-Sep. 11 |
+Sep. 04 | We began talking about graphical models.  We discussed covariance and correlation graphs as well as inference using the Wishart distribution.
+Sep. 09 | We discussed partial correlation graphical models and inference using the bootstrap.  We then introduced PCA.
+Sep. 11 | 
 Sep. 16 |
 Sep. 18 |
 Sep. 23 |

@@ -1,0 +1,125 @@
+---
+title: 'STAT636: Partial Correlation'
+subtitle: Let's investigate partial correlation
+output:
+  html_document: default
+---
+
+
+# Summary
+This document investigates using the bootstrap to make confidence intervals for partial correlations and compares them to correlation
+
+# Running example: Simulation
+
+Here, we are going to generate random vectors that have a specified precision matrix Omega.  Here, the precision matrix has a block diagonal
+structure.  Later, we will change rho2 to break this block diagonal structure
+```{r simulate1}
+n           = 400
+p           = 5
+
+#adding partial correlation
+rho         = .1
+rho2        = .0
+Omega       = matrix(c(1,rho,rho, rho2,0,
+                       rho, 1 , rho, 0,0,
+                       rho, rho, 1 , 0, 0,
+                       rho2, 0, 0 , 1 , rho,
+                       0, 0,  0, rho, 1),nrow=p)
+
+Omega
+Sigma      = solve(Omega)
+Sigma
+R          = -diag(1/sqrt(diag(Omega))) %*% Omega  %*% diag(1/sqrt(diag(Omega)))
+set.seed(1)
+X          = matrix(rnorm(n*p),nrow=n) 
+Xpc        = X %*% chol(Sigma)
+```
+
+#Computing the estimators
+
+We can compute the estimators as:
+```{r estimator1}
+Spc         = cov(Xpc)
+OmegaHat    = solve(Spc)
+Rhat        = -diag(1/sqrt(diag(OmegaHat))) %*% OmegaHat  %*% diag(1/sqrt(diag(OmegaHat)))
+```
+
+# The bootstrap
+
+Let's get some bootstrap confidence intervals
+```{r bootstrap1}
+B = 10000
+Rhat_starOutput = array(dim=c(p,p,B))
+for(b in 1:B){
+	bootSamp      = sample(1:n,n,replace=TRUE)
+	Xpc_star      = Xpc[bootSamp,]
+	Spc_star      = cov(Xpc_star)
+	OmegaHat_star = solve(Spc_star)
+	Rhat_star     = -diag(1/sqrt(diag(OmegaHat_star))) %*% OmegaHat_star  %*% diag(1/sqrt(diag(OmegaHat_star)))
+	Rhat_starOutput[,,b] = Rhat_star	
+}
+apply(Rhat_starOutput,1:2, quantile, 0.025)
+apply(Rhat_starOutput,1:2, quantile, 0.975)
+```
+
+Let's check and see if the true parameter is contained in the bootstrap intervals
+```{r checkIntervals1}
+R > apply(Rhat_starOutput,1:2, quantile, 0.025)
+R < apply(Rhat_starOutput,1:2, quantile, 0.975)
+```
+
+# Graphical models
+
+Let's plot the partial correlation graphical model.  First, here is the truth:
+
+```{r partialCorrelation1}
+require(igraph)
+edge = abs(R) > 0
+g    = graph.adjacency(edge , mode="undirected", diag=FALSE )
+plot(g, layout=layout.fruchterman.reingold)
+```
+
+We want to add an edge if 0 is not in the associated bootstrap interval
+```{r partialCorrelationHat1}
+noEdge = 0 > apply(Rhat_starOutput,1:2, quantile, 0.025) & 0 < apply(Rhat_starOutput,1:2, quantile, 0.975)
+g = graph.adjacency(!noEdge , mode="undirected", diag=FALSE )
+plot(g, layout=layout.fruchterman.reingold)
+```
+
+Let's compare the correlation graphical model.  Here is the theoretical graph:
+```{r correlation1}
+edge = abs(Sigma) > 0
+g = graph.adjacency(edge , mode="undirected", diag=FALSE )
+plot(g, layout=layout.fruchterman.reingold)
+```
+
+And here is the estimated one, without multiple correction:
+```{r correlationHat1}
+alpha = 0.05
+fisherStat = 1/2 * log((1+cor(Xpc))/(1-cor(Xpc)))
+diag(fisherStat) = 0
+
+#CI
+untransformedLower = fisherStat - qnorm(1 - alpha/2)/sqrt(n-3)
+untransformedUpper = fisherStat + qnorm(1 - alpha/2)/sqrt(n-3)
+transformedLower   = (exp(2*untransformedLower)-1)/(exp(2*untransformedLower)+1)
+transformedUpper   = (exp(2*untransformedUpper)-1)/(exp(2*untransformedUpper)+1)
+
+noEdge = 0 > transformedLower & 0 < transformedUpper
+g = graph.adjacency(!noEdge , mode="undirected", diag=FALSE )
+plot(g, layout=layout.fruchterman.reingold)
+```
+
+Now with multiple correction:
+```{r correlationHatCorrection1}
+alpha = 0.05/10
+#CI
+untransformedLower = fisherStat - qnorm(1 - alpha/2)/sqrt(n-3)
+untransformedUpper = fisherStat + qnorm(1 - alpha/2)/sqrt(n-3)
+transformedLower   = (exp(2*untransformedLower)-1)/(exp(2*untransformedLower)+1)
+transformedUpper   = (exp(2*untransformedUpper)-1)/(exp(2*untransformedUpper)+1)
+
+noEdge = 0 > transformedLower & 0 < transformedUpper
+g = graph.adjacency(!noEdge , mode="undirected", diag=FALSE )
+plot(g, layout=layout.fruchterman.reingold)
+```

@@ -16,7 +16,7 @@ Sep. 04 | We began talking about graphical models.  We discussed covariance and 
 Sep. 09 | We discussed partial correlation graphical models and inference using the bootstrap.  We then introduced PCA.
 Sep. 11 | We talked about two related methods of generalizing PCA: MDS and KPCA.  MDS operates on the pairwise dissimilarities which KPCA nonlinearizes PCA by inserting a general kernel in for the Euclidean inner product.
 Sep. 16 | We began looking at clustering by covering K-means clustering and beginning to talk about Hierarchical clustering
-Sep. 18 |
+Sep. 18 | Finished talking about Hierarchical clustering and briefly discussed density-based (i.e. soft) clustering
 Sep. 23 |
 Sep. 25 |
 Sep. 30 |

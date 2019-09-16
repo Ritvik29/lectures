@@ -15,7 +15,7 @@ Sep. 02 | We covered aspects of the multivariate normal distribution.
 Sep. 04 | We began talking about graphical models.  We discussed covariance and correlation graphs as well as inference using the Wishart distribution.
 Sep. 09 | We discussed partial correlation graphical models and inference using the bootstrap.  We then introduced PCA.
 Sep. 11 | We talked about two related methods of generalizing PCA: MDS and KPCA.  MDS operates on the pairwise dissimilarities which KPCA nonlinearizes PCA by inserting a general kernel in for the Euclidean inner product.
-Sep. 16 |
+Sep. 16 | We began looking at clustering by covering K-means clustering and beginning to talk about Hierarchical clustering
 Sep. 18 |
 Sep. 23 |
 Sep. 25 |

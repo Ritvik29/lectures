@@ -17,9 +17,9 @@ Sep. 09 | We discussed partial correlation graphical models and inference using 
 Sep. 11 | We talked about two related methods of generalizing PCA: MDS and KPCA.  MDS operates on the pairwise dissimilarities which KPCA nonlinearizes PCA by inserting a general kernel in for the Euclidean inner product.
 Sep. 16 | We began looking at clustering by covering K-means clustering and beginning to talk about Hierarchical clustering
 Sep. 18 | Finished talking about Hierarchical clustering and briefly discussed density-based (i.e. soft) clustering
-Sep. 23 |
-Sep. 25 |
-Sep. 30 |
+Sep. 23 | We began discussing supervised learning, defining risk, loss, and Bayes' rules
+Sep. 25 | We discuss various estimators of the Risk
+Sep. 30 | 
 Oct. 02 |
 Oct. 07 |
 Oct. 09 |

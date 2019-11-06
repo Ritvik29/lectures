@@ -19,25 +19,26 @@ Sep. 16 | We began looking at clustering by covering K-means clustering and begi
 Sep. 18 | Finished talking about Hierarchical clustering and briefly discussed density-based (i.e. soft) clustering
 Sep. 23 | We began discussing supervised learning, defining risk, loss, and Bayes' rules
 Sep. 25 | We discuss various estimators of the Risk
-Sep. 30 | 
-Oct. 02 |
-Oct. 07 |
-Oct. 09 |
-Oct. 14 |
-Oct. 16 | Midterm from 6:00 pm to 8:00 pm in BLOC 149
-Oct. 21 |
-Oct. 23 |
-Oct. 28 |
-Oct. 30 |
-Nov. 04 |
-Nov. 06 |
+Sep. 30 | Stepwise selection procedures: global and local solutions to a non-convex optimization problem
+Oct. 02 | Ridge regression
+Oct. 07 | Lasso regression
+Oct. 09 | In class exercise on coordinate descent for regression and the lasso.  Introduce elastic net and refitted lasso
+Oct. 14 | Midterm Review
+Oct. 16 | Relaxed lasso and in class exercise on batch gradient descent [Midterm from 6:00 pm to 8:00 pm in BLOC 149]
+Oct. 21 | Defining risk for classification and logistic regression
+Oct. 23 | Linear classifiers and the logistic elastic net
+Oct. 28 | Evaluating classifiers
+Oct. 30 | Nonparametric methods
+Nov. 04 | Decision Trees
+Nov. 06 | Bagging and random forest
 Nov. 11 |
 Nov. 13 |
 Nov. 18 |
 Nov. 20 |
 Nov. 25 |
 Nov. 27 | Thanksgiving, no class
-Dec. 04 | 
+Dec. 02 | Friday schedule, no class
+Dec. 04 | Review for Final
 Dec. 09 | Final, 3:30 to 5:30 pm
 
 **Note** The final is determined by the university and cannot be changed 
